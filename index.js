@@ -6,13 +6,20 @@ import cors from "cors"; // (middleware) CORS is a mechanism that allows a serve
 import dotenv from "dotenv"; // this is used to keep certain variables hidden from github repo.
 import 'dotenv/config';
 import User from './model/Users.js';
-
-const app = express(); // initialise the express modules as app
+// initialise the express modules as app
 
 app.use(express.json()); // parses the http req into json format.
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
-app.use(cors());
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+app.use(cors({
+  origin: 'https://reliable-lolly-3a490f.netlify.app', // Your Netlify domain
+}));
+
+// Other routes and middleware
 
 app.get("/", (req, res) => {
     res.status(200).send("hii");
