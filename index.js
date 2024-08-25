@@ -7,16 +7,14 @@ import dotenv from "dotenv"; // this is used to keep certain variables hidden fr
 import 'dotenv/config';
 import User from './model/Users.js';
 // initialise the express modules as app
+const app = express();
 
 app.use(express.json()); // parses the http req into json format.
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
-const express = require('express');
-const cors = require('cors');
-const app = express();
 
 app.use(cors({
-  origin: 'https://reliable-lolly-3a490f.netlify.app', // Your Netlify domain
+    origin: 'https://reliable-lolly-3a490f.netlify.app', // Your Netlify domain
 }));
 
 // Other routes and middleware
